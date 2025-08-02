@@ -1,0 +1,179 @@
+# Enterprise Fraud Detection System Configuration
+
+# Data Sources Configuration
+data_sources:
+  # Core banking system
+  core_banking:
+    host: "${DB_HOST:localhost}"
+    port: "${DB_PORT:5432}"
+    database: "${DB_NAME:core_banking}"
+    schema: "fraud_detection"
+    
+  # Data Lake (BigQuery/Snowflake)
+  data_lake:
+    project_id: "${GCP_PROJECT_ID:fraud-detection}"
+    dataset: "unified_customer_data"
+    credentials_path: "${GCP_CREDENTIALS_PATH}"
+    
+  # Real-time streaming
+  kafka:
+    bootstrap_servers: "${KAFKA_SERVERS:localhost:9092}"
+    topics:
+      transactions: "real_time_transactions"
+      events: "customer_events"
+
+# Feature Store Configuration
+feature_store:
+  provider: "feast"
+  registry_path: "features/feature_registry.db"
+  online_store:
+    type: "redis"
+    connection_string: "${REDIS_URL:redis://localhost:6379}"
+  offline_store:
+    type: "bigquery"
+    project_id: "${GCP_PROJECT_ID}"
+    dataset: "feature_store"
+
+# Model Configuration
+models:
+  hub_model:
+    name: "unified_risk_model"
+    algorithm: "xgboost"
+    version: "v1.0"
+    features:
+      - "profile_features"
+      - "behavioral_features" 
+      - "network_features"
+    
+  spoke_models:
+    pix_model:
+      name: "pix_fraud_model"
+      algorithm: "lightgbm"
+      context_features:
+        - "transaction_amount"
+        - "beneficiary_risk"
+        - "time_since_last_pix"
+    
+    credit_card_model:
+      name: "credit_card_fraud_model"
+      algorithm: "xgboost"
+      context_features:
+        - "merchant_category"
+        - "transaction_amount"
+        - "location_risk"
+    
+    loan_model:
+      name: "loan_fraud_model"
+      algorithm: "tensorflow"
+      context_features:
+        - "loan_amount"
+        - "purpose"
+        - "debt_to_income"
+
+# Real-time Inference Configuration
+inference:
+  api:
+    host: "0.0.0.0"
+    port: 8000
+    max_workers: 10
+  
+  thresholds:
+    high_risk: 0.8
+    medium_risk: 0.5
+    low_risk: 0.2
+  
+  actions:
+    high_risk: "block"
+    medium_risk: "challenge"
+    low_risk: "approve"
+
+# Feature Engineering Configuration
+feature_engineering:
+  time_windows:
+    short: ["1h", "6h", "24h"]
+    medium: ["7d", "30d"]
+    long: ["90d", "180d", "365d"]
+  
+  aggregations:
+    - "sum"
+    - "mean"
+    - "std"
+    - "min"
+    - "max"
+    - "count"
+    - "count_distinct"
+
+# Model Training Configuration
+training:
+  validation_split: 0.2
+  test_split: 0.1
+  random_state: 42
+  
+  hyperparameter_tuning:
+    method: "optuna"
+    n_trials: 100
+    timeout: 3600  # 1 hour
+  
+  cross_validation:
+    method: "time_series_split"
+    n_splits: 5
+
+# Monitoring Configuration
+monitoring:
+  model_drift:
+    enabled: true
+    threshold: 0.1
+    check_frequency: "daily"
+  
+  data_drift:
+    enabled: true
+    threshold: 0.15
+    check_frequency: "hourly"
+  
+  performance:
+    metrics:
+      - "precision"
+      - "recall"
+      - "f1_score"
+      - "auc_roc"
+    alerts:
+      precision_threshold: 0.90
+      recall_threshold: 0.85
+
+# Security Configuration
+security:
+  encryption:
+    algorithm: "AES-256"
+    key_rotation_days: 90
+  
+  audit:
+    enabled: true
+    log_level: "INFO"
+    retention_days: 365
+
+# Infrastructure Configuration
+infrastructure:
+  scaling:
+    min_replicas: 2
+    max_replicas: 10
+    target_cpu_utilization: 70
+  
+  resources:
+    memory: "4Gi"
+    cpu: "2"
+    gpu: false
+
+# Environment Specific Settings
+environment: "${ENVIRONMENT:development}"
+
+development:
+  debug: true
+  log_level: "DEBUG"
+  
+staging:
+  debug: false
+  log_level: "INFO"
+  
+production:
+  debug: false
+  log_level: "WARNING"
