@@ -614,6 +614,12 @@ graph TB
 - **📊 Feature Engineering**: Pandas, NumPy, Apache Spark
 - **🔄 MLOps**: MLflow, Feast (Feature Store)
 
+### 🚀 Advanced Data Science Features
+- **🕸️ Graph Neural Networks**: PyTorch Geometric, NetworkX for fraud ring detection
+- **🔍 Advanced Explainability**: SHAP, LIME, DiCE for model interpretability
+- **⏰ Time Series Analysis**: Statsmodels, PyWavelets for temporal pattern detection
+- **🧮 Community Detection**: Louvain, Girvan-Newman algorithms for network analysis
+
 ### ⚡ Performance & Infrastructure  
 - **🚀 API**: FastAPI, Uvicorn, Gunicorn
 - **💾 Databases**: PostgreSQL, Redis Cluster
@@ -669,6 +675,11 @@ graph TB
 - [03_api_usage.ipynb](notebooks/03_api_usage.ipynb) - **Practical API examples** and usage
 - [04_feature_analysis.ipynb](notebooks/04_feature_analysis.ipynb) - **Deep dive** into 4 pillars
 - [05_monitoring.ipynb](notebooks/05_monitoring.ipynb) - **Monitoring** and alerting
+
+### 🚀 Advanced Data Science Notebooks
+- [06_graph_neural_networks.ipynb](notebooks/06_graph_neural_networks.ipynb) - **Graph Neural Networks** for fraud ring detection
+- [07_explainability_shap.ipynb](notebooks/07_explainability_shap.ipynb) - **SHAP Explainability** and model interpretability
+- [08_temporal_features.ipynb](notebooks/08_temporal_features.ipynb) - **Advanced Time Series** feature engineering
 
 ### 🛠️ Technical Guides
 - [🔧 Feature Engineering Guide](docs/features.md) - 4-pillar architecture
