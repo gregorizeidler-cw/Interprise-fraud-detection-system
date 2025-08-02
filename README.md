@@ -123,12 +123,12 @@ graph TB
     I --> P
     
     %% Styling
-    classDef clientClass fill:#e1f5fe,stroke:#0277bd,stroke-width:2px
-    classDef apiClass fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px
-    classDef engineClass fill:#fff3e0,stroke:#ef6c00,stroke-width:2px
-    classDef featureClass fill:#e8f5e8,stroke:#2e7d32,stroke-width:2px
-    classDef dataClass fill:#fce4ec,stroke:#c2185b,stroke-width:2px
-    classDef monitorClass fill:#fff8e1,stroke:#f57f17,stroke-width:2px
+    classDef clientClass fill:#e1f5fe,stroke:#0277bd,stroke-width:2px,color:#000000
+    classDef apiClass fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px,color:#000000
+    classDef engineClass fill:#fff3e0,stroke:#ef6c00,stroke-width:2px,color:#000000
+    classDef featureClass fill:#e8f5e8,stroke:#2e7d32,stroke-width:2px,color:#000000
+    classDef dataClass fill:#fce4ec,stroke:#c2185b,stroke-width:2px,color:#000000
+    classDef monitorClass fill:#fff8e1,stroke:#f57f17,stroke-width:2px,color:#000000
     
     class A,B,C,D clientClass
     class E apiClass
@@ -323,14 +323,14 @@ graph LR
     K --> L
     
     %% Styling
-    classDef sourceClass fill:#e3f2fd,stroke:#1976d2,stroke-width:2px
-    classDef unifiedClass fill:#f1f8e9,stroke:#388e3c,stroke-width:2px
-    classDef pillar1Class fill:#fff3e0,stroke:#f57c00,stroke-width:2px
-    classDef pillar2Class fill:#e8eaf6,stroke:#3f51b5,stroke-width:2px
-    classDef pillar3Class fill:#fce4ec,stroke:#e91e63,stroke-width:2px
-    classDef pillar4Class fill:#f3e5f5,stroke:#9c27b0,stroke-width:2px
-    classDef cacheClass fill:#ffebee,stroke:#d32f2f,stroke-width:2px
-    classDef modelClass fill:#e0f2f1,stroke:#00796b,stroke-width:2px
+    classDef sourceClass fill:#e3f2fd,stroke:#1976d2,stroke-width:2px,color:#000000
+    classDef unifiedClass fill:#f1f8e9,stroke:#388e3c,stroke-width:2px,color:#000000
+    classDef pillar1Class fill:#fff3e0,stroke:#f57c00,stroke-width:2px,color:#000000
+    classDef pillar2Class fill:#e8eaf6,stroke:#3f51b5,stroke-width:2px,color:#000000
+    classDef pillar3Class fill:#fce4ec,stroke:#e91e63,stroke-width:2px,color:#000000
+    classDef pillar4Class fill:#f3e5f5,stroke:#9c27b0,stroke-width:2px,color:#000000
+    classDef cacheClass fill:#ffebee,stroke:#d32f2f,stroke-width:2px,color:#000000
+    classDef modelClass fill:#e0f2f1,stroke:#00796b,stroke-width:2px,color:#000000
     
     class A,B,C,D sourceClass
     class E unifiedClass
@@ -583,15 +583,15 @@ graph TB
     LB --> CERT
     
     %% Styling
-    classDef externalClass fill:#ffebee,stroke:#c62828,stroke-width:2px
-    classDef lbClass fill:#e8eaf6,stroke:#3f51b5,stroke-width:2px
-    classDef apiClass fill:#e3f2fd,stroke:#1976d2,stroke-width:2px
-    classDef modelClass fill:#f1f8e9,stroke:#388e3c,stroke-width:2px
-    classDef featureClass fill:#fff3e0,stroke:#f57c00,stroke-width:2px
-    classDef cacheClass fill:#fce4ec,stroke:#e91e63,stroke-width:2px
-    classDef dbClass fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px
-    classDef monitorClass fill:#fff8e1,stroke:#f9a825,stroke-width:2px
-    classDef securityClass fill:#e0f2f1,stroke:#00695c,stroke-width:2px
+    classDef externalClass fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#000000
+    classDef lbClass fill:#e8eaf6,stroke:#3f51b5,stroke-width:2px,color:#000000
+    classDef apiClass fill:#e3f2fd,stroke:#1976d2,stroke-width:2px,color:#000000
+    classDef modelClass fill:#f1f8e9,stroke:#388e3c,stroke-width:2px,color:#000000
+    classDef featureClass fill:#fff3e0,stroke:#f57c00,stroke-width:2px,color:#000000
+    classDef cacheClass fill:#fce4ec,stroke:#e91e63,stroke-width:2px,color:#000000
+    classDef dbClass fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px,color:#000000
+    classDef monitorClass fill:#fff8e1,stroke:#f9a825,stroke-width:2px,color:#000000
+    classDef securityClass fill:#e0f2f1,stroke:#00695c,stroke-width:2px,color:#000000
     
     class EXT externalClass
     class LB lbClass
