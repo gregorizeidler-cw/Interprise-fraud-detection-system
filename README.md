@@ -713,6 +713,79 @@ graph TB
 
 ---
 
+## 📊 Demo Data & Testing
+
+### 🎯 Comprehensive Demo Datasets
+
+We provide **production-scale synthetic datasets** for testing and demonstration:
+
+| Dataset | Records | Size | Description |
+|---------|---------|------|-------------|
+| **👥 Customer Profiles** | 10,000 | 890KB | Complete customer demographics, credit scores, risk profiles |
+| **💰 Transaction Network** | 100,000 | 13MB | Full transaction history with fraud labels (5% fraud rate) |
+| **🔍 ML Features** | 20,000 | 1.9MB | Ready-to-use features for model training |
+
+### 📁 Data Structure
+
+```
+data/demo/
+├── customer_profiles.csv     # Customer master data
+├── transaction_network.csv   # Transaction network for GNN analysis
+├── ml_features.csv          # ML-ready feature vectors
+└── features_summary.json    # Dataset metadata and statistics
+```
+
+### 🚀 Quick Start with Demo Data
+
+```python
+import pandas as pd
+
+# Load demo datasets
+customers = pd.read_csv("data/demo/customer_profiles.csv")
+transactions = pd.read_csv("data/demo/transaction_network.csv") 
+features = pd.read_csv("data/demo/ml_features.csv")
+
+print(f"📊 {len(customers):,} customers")
+print(f"💰 {len(transactions):,} transactions")
+print(f"⚠️ Fraud rate: {transactions['is_fraud'].mean():.2%}")
+```
+
+### 🧪 Generate Fresh Demo Data
+
+```bash
+# Activate virtual environment
+python3 -m venv demo_env
+source demo_env/bin/activate
+pip install pandas numpy networkx
+
+# Generate new demo datasets
+python scripts/generate_demo_data_fast.py
+
+# Create ML features
+python scripts/create_final_features.py
+```
+
+### ✅ Run Comprehensive Tests
+
+```bash
+# Run all advanced features tests
+python tests/test_advanced_features.py
+
+# Expected output:
+# ✅ Tests run: 15+
+# ✅ All core functionality verified
+# ✅ Data integrity confirmed
+```
+
+### 🎯 Demo Features
+
+- **🕸️ Graph Networks**: Fraud rings and network analysis with 15 pre-built fraud rings
+- **🔍 SHAP Analysis**: 12 features across 4-pillar architecture ready for explainability
+- **⏰ Time Series**: 90 days of temporal patterns with realistic seasonality
+- **📊 Realistic Patterns**: Business hours bias, weekend patterns, night fraud activity
+
+---
+
 ## 🤝 Contributing
 
 Please read our [contributing guidelines](CONTRIBUTING.md) for details on our code of conduct and the process for submitting pull requests.
